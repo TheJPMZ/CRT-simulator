@@ -1,180 +1,170 @@
 import math
-import sys
-from typing import final
-import numpy
-import matplotlib.pyplot as plt
-import threading
-import time
 import turtle
 from tkinter import *
-import pygame
-
-
-
-
 
 #TODO Refactoring para que sea mejor
-#TODO Interaccion con el usuario
-
-
-from numpy.core.fromnumeric import trace
-from numpy.lib.function_base import _select_dispatcher
 
 root = Tk() 
 root.config(bd=15)
 
-#Hz = ocillaciones/minuto
-
-Fi1 = 1
-Fi2 = 3*math.pi/4 
-
-Omega1 = 2
-Omega2 = 3
-
-
-
-A1 = 1   
-A2 = 1 
-
-def porcentajechido(r,rep):
-    if r == 0:
-        print("⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0% done")   
-    elif r == rep/10:
-        print("⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜ 10% done")
-    elif r == rep/5:
-        print("⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜ 20% done")
-    elif r == rep*3/10:
-        print("⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜ 30% done")
-    elif r == rep*2/5:
-        print("⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜ 40% done")
-    elif r == rep*5/10:
-        print("⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜ 50% done")
-    elif r == rep*6/10:
-        print("⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜ 60% done")
-    elif r == rep*7/10:
-        print("⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜ 70% done")
-    elif r == rep*8/10:
-        print("⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜ 80% done")
-    elif r == rep*9/10:
-        print("⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜ 90% done")
-    elif r == rep:
-        print("⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 100% done")
-
+Omega1 = 1
+Omega2 = 1
 
 def x(t):
-    return A1 * math.cos((Omega1*t)+Fi1)
+    return (placas_horizontales.get()/100) * math.cos((Omega1*t))
 
 def y(t):
-    return A2 * math.cos((Omega2*t)+Fi2)
-    
-n1 = StringVar()
+    return (placas_verticales.get()/100) * math.cos((Omega2*t)+degreeToRad(desfase.get()))
+
+def degreeToRad(a):
+    return (a * math.pi / 180)
+
+def canvasclear():
+    x_value.clear()
+    y_value.clear()
+    screen_value.clear()
+   
+current_mode = 1
+def changemode():
+    global current_mode,Omega1,Omega2
+    if current_mode == 0:
+        placas_verticales.set(100)
+        placas_horizontales.set(100)
+        
+        placas_horizontales["state"] = "disable"
+        placas_verticales["state"] = "disable"
+        desfase["state"] = "normal"
+        R1["state"] = "normal"
+        R2["state"] = "normal"
+        R3["state"] = "normal"
+        R4["state"] = "normal"
+        
+        current_mode = 1
+        
+    else: 
+        desfase.set(0)
+        
+        placas_horizontales["state"] = "normal"
+        placas_verticales["state"] = "normal"
+        desfase["state"] = "disable"
+        R1["state"] = "disable"
+        R2["state"] = "disable"
+        R3["state"] = "disable"
+        R4["state"] = "disable"
+        
+        Omega1 = 0
+        Omega2 = 0
+       
+        current_mode = 0
 
 Label(root, text="Voltaje de Aceleración").pack()
-Entry(root, justify=CENTER, textvariable=n1).pack()
+
+scale = Scale(root, from_=0, to=255,orient=HORIZONTAL)
+scale.set(127)
+scale.pack()
+
+Label(root, text="Tiempo de latencia").pack()
+
+latency = Scale(root, from_=1, to=100,orient=HORIZONTAL)
+latency.set(50)
+latency.pack()
+
 Label(root, text="Voltaje de placas Verticales").pack()
-Entry(root, justify=CENTER, textvariable=n1).pack()
+
+placas_verticales = Scale(root, from_=-100, to=100,orient=HORIZONTAL)
+placas_verticales.pack()
+placas_verticales.set(0)
+
 Label(root, text="Voltaje de placas Horizontales").pack()
-Entry(root, justify=CENTER, textvariable=n1).pack()
 
+placas_horizontales = Scale(root, from_=-100, to=100,orient=HORIZONTAL)
+placas_horizontales.pack()
+placas_horizontales.set(0)
 
-rainbow = ['red', 'yellow', 'green', 'cyan', 'blue', 'magenta']
+Label(root, text="Desfase entre ambos oscilladores").pack()
+
+desfase = Scale(root, from_=0, to=180,orient=HORIZONTAL)
+desfase.pack()
+
+Label(root, text="Frecuencia").pack()
+
+var = StringVar()
+
+def changeOmega():
+    global Omega1,Omega2
+    list = var.get().split(",")
+    print(list)
+    
+    Omega1 = int(list[0])
+    Omega2 = int(list[1])
+
+R1 = Radiobutton(root, justify=CENTER, text="1:1", variable=var, value="1,1",command=changeOmega)
+R1.pack( anchor = CENTER,side=TOP)
+
+R2 = Radiobutton(root, justify=CENTER, text="1:2", variable=var, value="1,2",command=changeOmega)
+R2.pack( anchor = CENTER ,side=TOP)
+
+R3 = Radiobutton(root,justify=CENTER, text="1:3", variable=var, value="1,3",command=changeOmega)
+R3.pack( anchor = CENTER,side=TOP)
+
+R4 = Radiobutton(root,justify=CENTER, text="2:3", variable=var, value="2,3",command=changeOmega)
+R4.pack( anchor = CENTER,side=TOP)
+
+Button(root, text = "Cambio de Modo",command=changemode).pack(side=LEFT)
+
+Button(root, text = "Limpiar",command=canvasclear).pack(side=LEFT)
+
+onLoop = True
+def salir():
+    global onLoop
+    onLoop = False
+
+Button(root, text = "Salir",command=salir).pack(side=LEFT)
+
+changemode() 
 
 turtle.Screen().bgcolor("Black")
+turtle.Screen().colormode(255)
 
+x_value = turtle.Turtle()
+y_value = turtle.Turtle()
+screen_value = turtle.Turtle()
 
+x_value.shape("circle")
+y_value.shape("circle")
+screen_value.shape("circle")
 
-pedro = turtle.Turtle()
-pedronegro = turtle.Turtle()
-juana = turtle.Turtle()
-pancho = turtle.Turtle()
+x_value.color("Red")
+y_value.color("Blue")
 
+x_value.penup()
+y_value.penup()
+screen_value.penup()
 
+screen_value.turtlesize(0.5)       
 
-pedro.shape("circle")
-juana.shape("circle")
-pancho.shape("circle")
+def draw(time):
 
-pedro.color("Red")
-pedronegro.color("Cyan")
-pedronegro.hideturtle()
-juana.color("Blue")
-
-
-pedro.speed(9)
-juana.speed(9)
-pancho.speed(9)
-
-
-pedro.penup()
-juana.penup()
-pancho.penup()
-pedro.goto(-300,600)
-juana.goto(-600,-300)
-pancho.turtlesize(1)
-
-
-
-for i in range(0,700): 
+    x_axis = x(time*0.1*(latency.get()/50))
+    y_axis = y(time*0.1*(latency.get()/50))
     
-    porcentajechido(i,100)
-    #print(x(i*0.01),y(i*0.01)) 
-    equis = x(i*0.1)
-    de = y(i*0.1)
-    equismenosuno = x((i-1)*0.1)
-    demenosuno = y((i-1)*0.1)
+    x_value.goto(x_axis*100,300)
+    y_value.goto(300,+y_axis*100)
+    screen_value.goto(x_axis*100,y_axis*100)
+
+    screen_value.pencolor(scale.get(),0,scale.get())
     
-    pedro.pendown()
-    pedro.goto(equis*100,300)
-
-    juana.goto(300,+de*100)
-    
-    
-    pancho.goto(equis*100,de*100)
-    pancho.color(rainbow[i%6])
-    pancho.pendown()
-    juana.pendown()
-    #plt.scatter(equis,de,s=100,c="#1f77b4")
-    #plt.show()
-    
-
-        
-
-    
-def funcion():
-    if(threading.current_thread().getName()) == "Thread-1":
-        contador = 0
-    elif (threading.current_thread().getName()) == "Thread-2":
-        contador = 100
-    elif (threading.current_thread().getName()) == "Thread-2":
-        contador = 200
-    else:
-        contador = 300
-    
-    while contador < contador+100:
-        contador += 1
-        i = contador
-        plt.scatter(x(i*0.01), y(i*0.01),s=100,c="#1f77b4")
- 
-
-
-#hilo2.start()
-#hilo3.start()
-
-
-#plt.show()
-
-width=500
-height=500
-Color_screen=(49,150,100)
-Color_line=(255,0,0)
+    screen_value.pendown()
+    y_value.pendown()
+    x_value.pendown()
 
 def main():
-    screen=pygame.display.set_mode((width,height))
-    screen.fill(Color_screen)
-    pygame.draw.dot(0,0,0,0)
-    pygame.draw.line(screen, Color_line, (60, 80), (130, 100))
-    pygame.display.flip()
     
+    time = 0
+    while onLoop:
+        draw(time)
+        time += 1
+
 
 if __name__ == "__main__":
     main()

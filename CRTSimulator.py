@@ -2,7 +2,7 @@ import math
 import turtle
 from tkinter import *
 
-#TODO Refactoring para que sea mejor
+#TODO: Documentation
 
 root = Tk() 
 root.config(bd=15)
@@ -93,7 +93,6 @@ var = StringVar()
 def changeOmega():
     global Omega1,Omega2
     list = var.get().split(",")
-    print(list)
     
     Omega1 = int(list[0])
     Omega2 = int(list[1])

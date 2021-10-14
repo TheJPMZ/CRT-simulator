@@ -51,8 +51,10 @@ On the second mode, changing the gap between the plates and a relation of freque
 ## Demonstration
 
 Using all the tools provided you can make some images like this ones:
+
 ![imagen](https://user-images.githubusercontent.com/64183934/137262036-cd78e342-70db-46d2-ac0d-38b864be256e.png)
 ![imagen](https://user-images.githubusercontent.com/64183934/137265998-5786ea3a-9e3f-4abd-98cc-063c3f62969b.png)
+
 As the program's main focus is rendering Lissajous curves:
 |   |1:1|1:2|1:3|2:3
 |-- |--|--|--|--|

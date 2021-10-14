@@ -6,5 +6,6 @@ Lisajous:
 
 ![imagen](https://user-images.githubusercontent.com/64183934/137265998-5786ea3a-9e3f-4abd-98cc-063c3f62969b.png)
 
+![imagen](https://user-images.githubusercontent.com/64183934/137266479-6fced334-ce3e-4b0f-a56a-afe100454cc7.png)
 
 ![imagen](https://user-images.githubusercontent.com/64183934/136323288-cd387f82-202b-4da9-a7cc-35b6f3069230.png)

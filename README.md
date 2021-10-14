@@ -41,9 +41,7 @@ As the program's main focus is rendering Lissajous curves:
 |-- |--|--|--|--|
 | 0 | ![imagen](https://user-images.githubusercontent.com/64183934/137271752-903bb165-2a63-449f-ad76-adb0a122a2c8.png) |![imagen](https://user-images.githubusercontent.com/64183934/137271779-0966bba7-ab18-4091-b5eb-0e6ec1072749.png) |![imagen](https://user-images.githubusercontent.com/64183934/137271798-50332db2-a682-4a6d-b6b1-ed466efa048c.png) | ![imagen](https://user-images.githubusercontent.com/64183934/137271827-852ec96f-93d6-4005-a53a-4c345374a51d.png)
 |45 | ![imagen](https://user-images.githubusercontent.com/64183934/137272136-f3641c7b-b934-48bc-beb7-be88509ba367.png) |![imagen](https://user-images.githubusercontent.com/64183934/137272178-05649540-abcd-4cb8-a445-75388eb2783d.png) |![imagen](https://user-images.githubusercontent.com/64183934/137272215-d9409cab-f37f-4e0e-837f-280e24ccdcd3.png)| ![imagen](https://user-images.githubusercontent.com/64183934/137272242-1a1d403b-332a-4fa7-92b0-478994acdc47.png)
-|90 |
-![imagen](https://user-images.githubusercontent.com/64183934/137267000-09098f10-6f65-46b0-a27e-3b06ca005d23.png)
-![imagen](https://user-images.githubusercontent.com/64183934/137267242-b98d7139-481e-4a2a-8a2c-9e66a9db0756.png)
+|90 | ![imagen](https://user-images.githubusercontent.com/64183934/137272473-300bb16c-15a0-4711-9e1b-0c0bd4b5a487.png) |![imagen](https://user-images.githubusercontent.com/64183934/137272496-417ec018-c343-4946-bdcc-9372b56ca1d8.png) |![imagen](https://user-images.githubusercontent.com/64183934/137272518-b69f5069-ff69-4032-b96b-80593c20df2b.png) |![imagen](https://user-images.githubusercontent.com/64183934/137272545-bea51c0a-e235-4b91-a410-d698b0cbd9aa.png)
 |135|![imagen](https://user-images.githubusercontent.com/64183934/137267535-71971f36-7c75-4d5b-8e28-de833066e801.png)
 
 

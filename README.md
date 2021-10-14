@@ -10,6 +10,7 @@ Lisajous:
 
 ![imagen](https://user-images.githubusercontent.com/64183934/137267000-09098f10-6f65-46b0-a27e-3b06ca005d23.png)
 
+![imagen](https://user-images.githubusercontent.com/64183934/137267242-b98d7139-481e-4a2a-8a2c-9e66a9db0756.png)
 
 
 ![imagen](https://user-images.githubusercontent.com/64183934/136323288-cd387f82-202b-4da9-a7cc-35b6f3069230.png)

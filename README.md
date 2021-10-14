@@ -4,6 +4,7 @@ By **TheJPMZ**
 This program simulates how a Cathode-ray tube (CRT) should work and provides an easy way to tinker with voltages and see the results. 
 
 A CRT was a machine capable of displaying images from various voltage signals, they were used mainly for oscilloscopes and televisions.
+
 ![imagen](https://user-images.githubusercontent.com/64183934/137262036-cd78e342-70db-46d2-ac0d-38b864be256e.png)
 
 ## How to run?

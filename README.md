@@ -39,11 +39,6 @@ Using all the tools provided you can make some images like this ones:
 As the program's main focus is rendering Lissajous curves:
 |   |1:1|1:2|1:3|2:3
 |-- |--|--|--|--|
-
-![imagen](https://user-images.githubusercontent.com/64183934/137271779-0966bba7-ab18-4091-b5eb-0e6ec1072749.png)
-![imagen](https://user-images.githubusercontent.com/64183934/137271798-50332db2-a682-4a6d-b6b1-ed466efa048c.png)
-![imagen](https://user-images.githubusercontent.com/64183934/137271827-852ec96f-93d6-4005-a53a-4c345374a51d.png)
-
 | 0 | ![imagen](https://user-images.githubusercontent.com/64183934/137271752-903bb165-2a63-449f-ad76-adb0a122a2c8.png)|![imagen](https://user-images.githubusercontent.com/64183934/137271779-0966bba7-ab18-4091-b5eb-0e6ec1072749.png) |![imagen](https://user-images.githubusercontent.com/64183934/137271798-50332db2-a682-4a6d-b6b1-ed466efa048c.png) | ![imagen](https://user-images.githubusercontent.com/64183934/137271827-852ec96f-93d6-4005-a53a-4c345374a51d.png)
 |45 |![imagen](https://user-images.githubusercontent.com/64183934/137267000-09098f10-6f65-46b0-a27e-3b06ca005d23.png)
 |90 |

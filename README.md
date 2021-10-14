@@ -9,9 +9,9 @@ A CRT was a machine capable of displaying images from various voltage signals, t
 ## How to run?
 On CMD/Console:
 - To install dependencies
--- ```pip install -r requirements.txt```
+	-- ```pip install -r requirements.txt```
 - After that, to run the simulation
---```python CRTSimulator.py```
+	--```python CRTSimulator.py```
 
 
 ## Functionality
